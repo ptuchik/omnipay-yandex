@@ -21,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Omnipay\\Idram\\": "src/"
+            "Omnipay\\Yandex\\": "src/"
         }
     },
     "require": {
