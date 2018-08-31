@@ -41,6 +41,16 @@ class PurchaseResponse extends AbstractResponse
         return (object) ['transaction' => $this->data];
     }
 
+    public function isRedirect()
+    {
+        return true;
+    }
+
+    public function getRedirectUrl()
+    {
+        return $this->getConfirmation()->confirmation_url;
+    }
+
     /**
      * Get successful status
      * @return bool
@@ -48,5 +58,15 @@ class PurchaseResponse extends AbstractResponse
     public function isSuccessful()
     {
         return $this->data->getStatus() == PaymentStatus::SUCCEEDED;
+    }
+
+    public function isPending()
+    {
+        return $this->data->getStatus() == PaymentStatus::PENDING;
+    }
+
+    public function getConfirmation()
+    {
+        return $this->data->confiramtion;
     }
 }
