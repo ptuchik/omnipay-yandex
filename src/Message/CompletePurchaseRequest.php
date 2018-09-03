@@ -22,6 +22,6 @@ class CompletePurchaseRequest extends PurchaseRequest
         
         $response =  $this->yandex->capturePayment(['amount' => array_get($data, 'amount', [])], array_get($data, 'payment_method_id'));
 
-        return $this->response = new PurchaseCompleteResponse($this, $response);
+        return $this->response = new CompletePurchaseResponse($this, $response);
     }
 }
