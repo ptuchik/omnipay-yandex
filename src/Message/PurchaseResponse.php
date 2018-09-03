@@ -43,7 +43,11 @@ class PurchaseResponse extends AbstractResponse
 
     public function isRedirect()
     {
-        return true;
+        if ($this->isPending()) {
+            return true;
+        }
+
+        return false;
     }
 
     public function getRedirectUrl()
