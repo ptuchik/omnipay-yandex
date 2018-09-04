@@ -5,6 +5,7 @@ namespace Omnipay\Yandex;
 use Omnipay\Common\Http\ClientInterface;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Yandex\Helpers\ParametersTrait;
+use Omnipay\Yandex\Message\CompletePurchaseRequest;
 use Omnipay\Yandex\Message\PurchaseRequest;
 use Omnipay\Yandex\Message\RefundRequest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
@@ -104,6 +105,19 @@ class Gateway extends AbstractGateway
     public function purchase(array $options = array())
     {
         return $this->createRequest(PurchaseRequest::class, $options);
+    }
+
+
+    /**
+     * Complete purchase
+     *
+     * @param array $options
+     *
+     * @return \Omnipay\Common\Message\AbstractRequest|\Omnipay\Common\Message\RequestInterface
+     */
+    public function completePurchase(array $options = array())
+    {
+        return $this->createRequest(CompletePurchaseRequest::class, $options);
     }
 
     /**
