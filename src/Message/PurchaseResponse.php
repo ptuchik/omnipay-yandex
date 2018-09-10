@@ -52,7 +52,7 @@ class PurchaseResponse extends AbstractResponse
 
     public function getRedirectUrl()
     {
-        return $this->getConfirmation()->confirmation_url;
+        return $this->data->getConfirmation()->confirmationUrl;
     }
 
     /**
@@ -67,10 +67,5 @@ class PurchaseResponse extends AbstractResponse
     public function isPending()
     {
         return $this->data->getStatus() == PaymentStatus::PENDING;
-    }
-
-    public function getConfirmation()
-    {
-        return $this->data->confiramtion;
     }
 }
