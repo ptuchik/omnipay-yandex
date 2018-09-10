@@ -3,6 +3,7 @@
 namespace Omnipay\Yandex\Message;
 
 use Omnipay\Common\Message\AbstractResponse;
+use Omnipay\Common\Message\RedirectResponseInterface;
 use Omnipay\Yandex\Helpers\ParametersTrait;
 use YandexCheckout\Model\PaymentStatus;
 
@@ -10,7 +11,7 @@ use YandexCheckout\Model\PaymentStatus;
  * Class PurchaseResponse
  * @package Omnipay\Yandex\Message
  */
-class PurchaseResponse extends AbstractResponse
+class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
     use ParametersTrait;
 
